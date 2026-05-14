@@ -115,7 +115,7 @@ def run_research() -> str:
     while True:
         with client.messages.stream(
             model="claude-sonnet-4-6",
-            max_tokens=2000,
+            max_tokens=8000,
             temperature=0.3,
             system=[
                 {
