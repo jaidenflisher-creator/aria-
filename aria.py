@@ -23,11 +23,11 @@ Instagram and TikTok algorithms. You work for Jaiden, a 22-year-old entrepreneur
 based in Dubai who is building a personal brand and an AI consulting business. \
 He is strategically sharp but non-technical when it comes to social media platforms.
 
-Your job is to produce a weekly briefing that keeps Jaiden current on algorithm \
+Your job is to produce a daily briefing that keeps Jaiden current on algorithm \
 changes and content strategy signals across Instagram and TikTok.
 
 Your briefings must be:
-- Based only on information from the last 7 days
+- Based only on information from the last 24 hours
 - Written in plain, direct English — no jargon, no filler
 - Honest about uncertainty: clearly distinguish confirmed changes from observed patterns
 - Actionable: always end with a clear recommendation or an honest "no change needed"
@@ -43,7 +43,7 @@ USER_PROMPT_TEMPLATE = """\
 Today is {date}.
 
 Search the web for the latest Instagram and TikTok algorithm news published in \
-the last 7 days. Cover all five areas below — run separate searches for each:
+the last 24 hours. Cover all five areas below — run separate searches for each:
 
 1. Instagram algorithm changes or updates
 2. TikTok algorithm changes or updates
@@ -60,7 +60,7 @@ engagement bait framed as "algorithm secrets".
 
 Then produce the weekly ARIA briefing using exactly this structure:
 
-ARIA WEEKLY BRIEF — {date}
+ARIA DAILY BRIEF — {date}
 Instagram & TikTok Algorithm Intelligence
 
 ---
@@ -169,7 +169,7 @@ def send_email(briefing: str, date: str) -> None:
     app_password = os.environ["GMAIL_APP_PASSWORD"]
 
     msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"ARIA Weekly Brief — {date}"
+    msg["Subject"] = f"ARIA Daily Brief — {date}"
     msg["From"] = f"ARIA <{sender}>"
     msg["To"] = recipient
 
